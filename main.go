@@ -109,11 +109,6 @@ func (z *Zapojeni) addLink(from, to int) {
 	z.linkedOnBox |= from | to
 }
 
-func (z *Zapojeni) getSignature() int {
-	sig := (z.linkedToCerna | z.linkedToCervena) + (z.linkedOnBox << 5)
-	return sig &^ (Cerna | Cervena) // for sure nepropojujeme zdířky měřáku
-}
-
 func (z *Zapojeni) propoj(b int) bool {
 	return z.linkedOnBox&b == b
 }
@@ -183,8 +178,6 @@ func randomDU() float64 {
 }
 
 func (z *Zapojeni) measureNothing(box *Box, u0, i0 float64) (msg string) {
-	_s := z.getSignature()
-
 	fill(box.U, u0)
 
 	if z.propoj(Zelena | Modra) {
@@ -207,7 +200,8 @@ func (z *Zapojeni) measureNothing(box *Box, u0, i0 float64) (msg string) {
 		}
 	}
 
-	if BilaSModrou&_s == 0 && i0 > 0 && box.I[0] == 0 {
+	if z.linkedOnBox&^(Bila|Zelena) == 0 &&
+		i0 > 0 && box.I[0] == 0 {
 		box.Jiskra = true
 	}
 
@@ -215,8 +209,6 @@ func (z *Zapojeni) measureNothing(box *Box, u0, i0 float64) (msg string) {
 }
 
 func (z *Zapojeni) measureA(box *Box, ma []float64, u0, i0 float64) (msg string) {
-	_s := z.getSignature()
-
 	fill(box.U, u0)
 
 	if z.propoj(Zelena|Modra) || z.meri(Zelena|Modra) ||
@@ -271,7 +263,9 @@ func (z *Zapojeni) measureA(box *Box, ma []float64, u0, i0 float64) (msg string)
 		}
 	}
 
-	if BilaSModrou&_s == 0 && (Bila|Modra)&_s == 0 && i0 > 0 && box.I[0] == 0 {
+	if z.linkedOnBox&^(Bila|Zelena) == 0 &&
+		(z.linkedToCerna|z.linkedToCervena)&^(Bila|Zelena) == 0 &&
+		i0 > 0 && box.I[0] == 0 {
 		box.Jiskra = true
 	}
 
