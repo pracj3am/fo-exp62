@@ -16,6 +16,7 @@
 
     <form id="aparatura"i class="mt-4">
         <input id="i0" type="hidden" name="i0" value="0">
+        <input id="u0" type="hidden" name="u0" value="0">
 
         <div class="btn-toolbar row mb-3">
             <label class="col-auto col-form-label">Nastavení digitálního měřáku</label>
@@ -77,11 +78,6 @@
                 <option value="16">Modrá</option>
             </select>
         </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text"><var>U</var><sub>0</sub> (napětí na kondenzátoru)</span>
-            <input id="u0" class="form-control" type="text" name="u0" value="0">
-            <span class="input-group-text">mV</span>
-        </div>
     </form>
     <p>
         Každá změna zapojení se automaticky ihned projeví.
@@ -89,7 +85,7 @@
 
     <div class="alert alert-danger mt-4" role="alert" style="display: none">
     </div>
-    <div class="alert alert-warning mt-4" role="alert" style="display: none">
+    <div class="alert alert-warning mt-2" role="alert" style="display: none">
         Při odpojování kontaktu přeskočila jiskra!
     </div>
     <div id="result" class="mt-4">
