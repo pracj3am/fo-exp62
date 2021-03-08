@@ -1,0 +1,54 @@
+label.btn.cerna, label.btn.cervena, label.btn.bila, label.btn.zelena, label.btn.modra {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    border-width: 10px;
+}
+
+label.btn.cerna, label.btn.cervena {
+    background-color: gold;
+}
+
+label.btn.bila, label.btn.zelena, label.btn.modra {
+    background-color: #222;
+}
+
+label.btn.cerna {
+    border-color: #000;
+}
+
+label.btn.cervena {
+    border-color: #d00;
+}
+
+label.btn.bila {
+    border-color: #dcdcc6;
+}
+
+label.btn.zelena {
+    border-color: #3d3;
+}
+
+label.btn.modra {
+    border-color: #06d;
+}
+
+.banan-left, .banan-right {
+    height: 3rem;
+    width: 6rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.banan-left {
+    background-image: url('/static/banan-left.jpg');
+    background-position: center left;
+}
+.banan-right {
+    background-image: url('/static/banan-right.jpg');
+    background-position: center right;
+}
+.drat {
+    height: 4px;
+    border: 2px solid black;
+}

@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="static/bootstrap.min.css">
+    <link rel="stylesheet" href="static/main.css">
     <script type="text/javascript" src="static/segment-display.js"></script>
 	<title>Experimentální úloha 62. ústředního kola FO</title>
 </head>
@@ -27,56 +28,125 @@
                 <label class="btn btn-outline-secondary" for="mA">mA</label>
             </div>
         </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text">Drát 1</span>
-            <select class="form-select" name="kabel1" aria-label="Zdířka 1">
-                <option value="0">nezapojen</option>
-                <option value="1" selected>Černá</option>
-                <option value="2">Červená</option>
-                <option value="4">Bílá</option>
-                <option value="8">Zelená</option>
-                <option value="16">Modrá</option>
-            </select>
-            <select class="form-select" name="kabel1" aria-label="Zdířka 2">
-                <option value="0">nezapojen</option>
-                <option value="4">Bílá</option>
-                <option value="8">Zelená</option>
-                <option value="16">Modrá</option>
-            </select>
+
+        <div class="row mb-3 spoj">
+            <div class="col-sm-4 text-end">
+                <input type="radio" class="btn-check" name="kabel11" value="0" id="kabel11-0" autocomplete="off">
+                <label class="btn btn-outline-secondary mb-2 me-2" for="kabel11-0" data-value="0">Odpojit</label>
+
+                <input type="radio" class="btn-check" name="kabel11" value="1" id="kabel11-1" autocomplete="off" checked>
+                <label class="btn mb-2 cerna" for="kabel11-1" data-value="1"></label>
+
+                <input type="radio" class="btn-check" name="kabel11" value="2" id="kabel11-2" autocomplete="off">
+                <label class="btn mb-2 cervena" for="kabel11-2" data-value="2"></label>
+
+                <input type="radio" class="btn-check" name="kabel11" value="4" id="kabel11-4" autocomplete="off">
+                <label class="btn mb-2 bila" for="kabel11-4" data-value="4"></label>
+
+                <input type="radio" class="btn-check" name="kabel11" value="8" id="kabel11-8" autocomplete="off">
+                <label class="btn mb-2 zelena" for="kabel11-8" data-value="8"></label>
+
+                <input type="radio" class="btn-check" name="kabel11" value="16" id="kabel11-16" autocomplete="off">
+                <label class="btn mb-2 modra" for="kabel11-16" data-value="16"></label>
+            </div>
+            <div class="col-sm-4 d-flex flex-nowrap align-items-center">
+                <div class="banan-left"></div>
+                <div class="drat flex-grow-1"></div>
+                <div class="banan-right"></div>
+            </div>
+            <div class="col-sm-4">
+                <input type="radio" class="btn-check" name="kabel12" value="4" id="kabel12-4" autocomplete="off">
+                <label class="btn mb-2 bila" for="kabel12-4" data-value="4"></label>
+
+                <input type="radio" class="btn-check" name="kabel12" value="8" id="kabel12-8" autocomplete="off">
+                <label class="btn mb-2 zelena" for="kabel12-8" data-value="8"></label>
+
+                <input type="radio" class="btn-check" name="kabel12" value="16" id="kabel12-16" autocomplete="off">
+                <label class="btn mb-2 modra" for="kabel12-16" data-value="16"></label>
+
+                <input type="radio" class="btn-check" name="kabel12" value="0" id="kabel12-0" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary mb-2 ms-2" for="kabel12-0" data-value="0">Odpojit</label>
+            </div>
         </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text">Drát 2</span>
-            <select class="form-select" name="kabel2" aria-label="Zdířka 1">
-                <option value="0">nezapojen</option>
-                <option value="1">Černá</option>
-                <option value="2" selected>Červená</option>
-                <option value="4">Bílá</option>
-                <option value="8">Zelená</option>
-                <option value="16">Modrá</option>
-            </select>
-            <select class="form-select" name="kabel2" aria-label="Zdířka 2">
-                <option value="0">nezapojen</option>
-                <option value="4">Bílá</option>
-                <option value="8">Zelená</option>
-                <option value="16">Modrá</option>
-            </select>
+
+        <div class="row mb-3 spoj">
+            <div class="col-sm-4 text-end">
+                <input type="radio" class="btn-check" name="kabel21" value="0" id="kabel21-0" autocomplete="off">
+                <label class="btn btn-outline-secondary mb-2 me-2" for="kabel21-0" data-value="0">Odpojit</label>
+
+                <input type="radio" class="btn-check" name="kabel21" value="1" id="kabel21-1" autocomplete="off">
+                <label class="btn mb-2 cerna" for="kabel21-1" data-value="1"></label>
+
+                <input type="radio" class="btn-check" name="kabel21" value="2" id="kabel21-2" autocomplete="off" checked>
+                <label class="btn mb-2 cervena" for="kabel21-2" data-value="2"></label>
+
+                <input type="radio" class="btn-check" name="kabel21" value="4" id="kabel21-4" autocomplete="off">
+                <label class="btn mb-2 bila" for="kabel21-4" data-value="4"></label>
+
+                <input type="radio" class="btn-check" name="kabel21" value="8" id="kabel21-8" autocomplete="off">
+                <label class="btn mb-2 zelena" for="kabel21-8" data-value="8"></label>
+
+                <input type="radio" class="btn-check" name="kabel21" value="16" id="kabel21-16" autocomplete="off">
+                <label class="btn mb-2 modra" for="kabel21-16" data-value="16"></label>
+            </div>
+            <div class="col-sm-4 d-flex flex-nowrap align-items-center">
+                <div class="banan-left"></div>
+                <div class="drat flex-grow-1"></div>
+                <div class="banan-right"></div>
+            </div>
+            <div class="col-sm-4">
+                <input type="radio" class="btn-check" name="kabel22" value="4" id="kabel22-4" autocomplete="off">
+                <label class="btn mb-2 bila" for="kabel22-4" data-value="4"></label>
+
+                <input type="radio" class="btn-check" name="kabel22" value="8" id="kabel22-8" autocomplete="off">
+                <label class="btn mb-2 zelena" for="kabel22-8" data-value="8"></label>
+
+                <input type="radio" class="btn-check" name="kabel22" value="16" id="kabel22-16" autocomplete="off">
+                <label class="btn mb-2 modra" for="kabel22-16" data-value="16"></label>
+
+                <input type="radio" class="btn-check" name="kabel22" value="0" id="kabel22-0" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary mb-2 ms-2" for="kabel22-0" data-value="0">Odpojit</label>
+            </div>
         </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text">Drát 3</span>
-            <select class="form-select" name="kabel3" aria-label="Zdířka 1">
-                <option value="0">nezapojen</option>
-                <option value="1">Černá</option>
-                <option value="2">Červená</option>
-                <option value="4">Bílá</option>
-                <option value="8">Zelená</option>
-                <option value="16">Modrá</option>
-            </select>
-            <select class="form-select" name="kabel3" aria-label="Zdířka 2">
-                <option value="0">nezapojen</option>
-                <option value="4">Bílá</option>
-                <option value="8">Zelená</option>
-                <option value="16">Modrá</option>
-            </select>
+
+        <div class="row mb-3 spoj">
+            <div class="col-sm-4 text-end">
+                <input type="radio" class="btn-check" name="kabel31" value="0" id="kabel31-0" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary mb-2 me-2" for="kabel31-0" data-value="0">Odpojit</label>
+
+                <input type="radio" class="btn-check" name="kabel31" value="1" id="kabel31-1" autocomplete="off">
+                <label class="btn mb-2 cerna" for="kabel31-1" data-value="1"></label>
+
+                <input type="radio" class="btn-check" name="kabel31" value="2" id="kabel31-2" autocomplete="off">
+                <label class="btn mb-2 cervena" for="kabel31-2" data-value="2"></label>
+
+                <input type="radio" class="btn-check" name="kabel31" value="4" id="kabel31-4" autocomplete="off">
+                <label class="btn mb-2 bila" for="kabel31-4" data-value="4"></label>
+
+                <input type="radio" class="btn-check" name="kabel31" value="8" id="kabel31-8" autocomplete="off">
+                <label class="btn mb-2 zelena" for="kabel31-8" data-value="8"></label>
+
+                <input type="radio" class="btn-check" name="kabel31" value="16" id="kabel31-16" autocomplete="off">
+                <label class="btn mb-2 modra" for="kabel31-16" data-value="16"></label>
+            </div>
+            <div class="col-sm-4 d-flex flex-nowrap align-items-center">
+                <div class="banan-left"></div>
+                <div class="drat flex-grow-1"></div>
+                <div class="banan-right"></div>
+            </div>
+            <div class="col-sm-4">
+                <input type="radio" class="btn-check" name="kabel32" value="4" id="kabel32-4" autocomplete="off">
+                <label class="btn mb-2 bila" for="kabel32-4" data-value="4"></label>
+
+                <input type="radio" class="btn-check" name="kabel32" value="8" id="kabel32-8" autocomplete="off">
+                <label class="btn mb-2 zelena" for="kabel32-8" data-value="8"></label>
+
+                <input type="radio" class="btn-check" name="kabel32" value="16" id="kabel32-16" autocomplete="off">
+                <label class="btn mb-2 modra" for="kabel32-16" data-value="16"></label>
+
+                <input type="radio" class="btn-check" name="kabel32" value="0" id="kabel32-0" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary mb-2 ms-2" for="kabel32-0" data-value="0">Odpojit</label>
+            </div>
         </div>
     </form>
     <p>

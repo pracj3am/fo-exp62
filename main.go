@@ -51,21 +51,22 @@ type Box struct {
 	Jiskra bool
 }
 
-func parseKabel(input []string) (int, int) {
-	if len(input) < 2 {
-		log.Println("Neplatný input: málo zdířek")
+func parseKabel(input1, input2 string) (int, int) {
+	if input1 == "" {
+		log.Println("Neplatný input: chybí první zdířka")
 		return 0, 0
 	}
-	if len(input) > 2 {
-		log.Println("Neočekávaný input: moc zdířek")
+	if input2 == "" {
+		log.Println("Neplatný input: chybí druhá zdířka")
+		return 0, 0
 	}
-	z1, err := strconv.Atoi(input[0])
+	z1, err := strconv.Atoi(input1)
 	if err != nil {
-		log.Printf("Neplané číslo zdířky: %s", input[0])
+		log.Printf("Neplané číslo zdířky: %s", input1)
 	}
-	z2, err := strconv.Atoi(input[1])
+	z2, err := strconv.Atoi(input2)
 	if err != nil {
-		log.Printf("Neplané číslo zdířky: %s", input[1])
+		log.Printf("Neplané číslo zdířky: %s", input2)
 	}
 	if z1 > z2 {
 		return z2, z1
@@ -357,9 +358,9 @@ func Measure(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println(r.PostForm)
 
-	zap.addLink(parseKabel(r.PostForm["kabel1"]))
-	zap.addLink(parseKabel(r.PostForm["kabel2"]))
-	zap.addLink(parseKabel(r.PostForm["kabel3"]))
+	zap.addLink(parseKabel(r.PostForm.Get("kabel11"), r.PostForm.Get("kabel12")))
+	zap.addLink(parseKabel(r.PostForm.Get("kabel21"), r.PostForm.Get("kabel22")))
+	zap.addLink(parseKabel(r.PostForm.Get("kabel31"), r.PostForm.Get("kabel32")))
 
 	u0, err := strconv.Atoi(r.PostForm.Get("u0"))
 	if err != nil {

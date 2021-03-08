@@ -3,17 +3,8 @@ var jiskraEl = document.querySelectorAll('.alert-warning')[0]
 var resultEl = document.getElementById('result')
 var u0 = document.getElementById('u0')
 var i0 = document.getElementById('i0')
-var selects = document.querySelectorAll('#aparatura select');
+var zapojInpts = document.querySelectorAll('#aparatura .spoj input[type=radio]');
 var merak = document.querySelectorAll('#aparatura input[name=merak]');
-var colors = {
-    '0': ['#ccc', ''],
-    '1': ['#000', '#fff'],
-    '2': ['#d00', '#fff'],
-    '4': ['#fff', '#222'],
-    '8': ['#3d3', '#222'],
-    '16': ['#06d', '#222'],
-};
-
 var form = document.getElementById('aparatura');
 
 var display = new SegmentDisplay("display");
@@ -92,18 +83,23 @@ var measure = function() {
 };
 
 var endis = function(el) {
-    if (el.value == '0') {
-        Array.prototype.forEach.call(el.children, function(opt, i) {
-            if (opt.getAttribute('value') != '0') {
-                opt.removeAttribute('disabled');
+    if (el.checked) {
+        Array.prototype.forEach.call(el.parentNode.querySelectorAll('label'), function(lbl, i) {
+            if (el.value == '0') {
+                if (lbl.getAttribute('data-value') != '0') {
+                    lbl.style.display = '';
+                } else {
+                    lbl.style.display = 'none';
+                }
             }
-        });
-    } else {
-        Array.prototype.forEach.call(el.children, function(opt, i) {
-            if (opt.getAttribute('value') != '0'
-                && opt.getAttribute('value') != el.value)
-            { 
-                opt.setAttribute('disabled', '');
+            if (el.value != '0') {
+                if (lbl.getAttribute('data-value') == '0'
+                    || lbl.getAttribute('data-value') == el.value)
+                {
+                    lbl.style.display = '';
+                } else {
+                    lbl.style.display = 'none';
+                }
             }
         });
     }
@@ -114,13 +110,9 @@ form.addEventListener('submit', function(e) {
     measure();
 });
 
-Array.prototype.forEach.call(selects, function(el, i) {
-    el.style.color = colors[el.value][0];
-    el.style.backgroundColor = colors[el.value][1];
+Array.prototype.forEach.call(zapojInpts, function(el, i) {
     endis(el);
     el.addEventListener('change', function(e) {
-        e.target.style.color = colors[e.target.value][0];
-        e.target.style.backgroundColor = colors[e.target.value][1];
         endis(e.target);
         measure();
     })
