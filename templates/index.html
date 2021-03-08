@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <script type="text/javascript" src="static/segment-display.js"></script>
+	<title>Experimentální úloha 62. ústředního kola FO</title>
+</head>
+
+<body class="container">
+	<h1>Experimentální úloha 62. ústředního kola FO</h1>
+
+    <canvas id="display" width="260" height="140"></canvas>  
+
+    <form id="aparatura"i class="mt-4">
+        <input id="i0" type="hidden" name="i0" value="0">
+
+        <div class="btn-toolbar row mb-3">
+            <label class="col-auto col-form-label">Nastavení digitálního měřáku</label>
+            <div class="col-auto btn-group btn-group-lg" role="group">
+                <input type="radio" class="btn-check" name="merak" id="V" value="V" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="V">V</label>
+                <input type="radio" class="btn-check" name="merak" id="mA" value="A" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary" for="mA">mA</label>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Drát 1</span>
+            <select class="form-select" name="kabel1" aria-label="Zdířka 1">
+                <option value="0">nezapojen</option>
+                <option value="1" selected>Černá</option>
+                <option value="2">Červená</option>
+                <option value="4">Bílá</option>
+                <option value="8">Zelená</option>
+                <option value="16">Modrá</option>
+            </select>
+            <select class="form-select" name="kabel1" aria-label="Zdířka 2">
+                <option value="0">nezapojen</option>
+                <option value="4">Bílá</option>
+                <option value="8">Zelená</option>
+                <option value="16">Modrá</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Drát 2</span>
+            <select class="form-select" name="kabel2" aria-label="Zdířka 1">
+                <option value="0">nezapojen</option>
+                <option value="1">Černá</option>
+                <option value="2" selected>Červená</option>
+                <option value="4">Bílá</option>
+                <option value="8">Zelená</option>
+                <option value="16">Modrá</option>
+            </select>
+            <select class="form-select" name="kabel2" aria-label="Zdířka 2">
+                <option value="0">nezapojen</option>
+                <option value="4">Bílá</option>
+                <option value="8">Zelená</option>
+                <option value="16">Modrá</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Drát 3</span>
+            <select class="form-select" name="kabel3" aria-label="Zdířka 1">
+                <option value="0">nezapojen</option>
+                <option value="1">Černá</option>
+                <option value="2">Červená</option>
+                <option value="4">Bílá</option>
+                <option value="8">Zelená</option>
+                <option value="16">Modrá</option>
+            </select>
+            <select class="form-select" name="kabel3" aria-label="Zdířka 2">
+                <option value="0">nezapojen</option>
+                <option value="4">Bílá</option>
+                <option value="8">Zelená</option>
+                <option value="16">Modrá</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text"><var>U</var><sub>0</sub> (napětí na kondenzátoru)</span>
+            <input id="u0" class="form-control" type="text" name="u0" value="0">
+            <span class="input-group-text">mV</span>
+        </div>
+    </form>
+    <p>
+        Každá změna zapojení se automaticky ihned projeví.
+    </p>
+
+    <div class="alert alert-danger mt-4" role="alert" style="display: none">
+    </div>
+    <div class="alert alert-warning mt-4" role="alert" style="display: none">
+        Při odpojování kontaktu přeskočila jiskra!
+    </div>
+    <div id="result" class="mt-4">
+    </div>
+
+    <script type="text/javascript" src="static/main.js"></script>
+</body>
+
+</html>
