@@ -192,11 +192,12 @@ func (z *Zapojeni) measureNothing(box *Box, u0, i0 float64) (msg string) {
 	}
 	if (Bila | Modra) == z.linkedOnBox {
 		// část energie cívky se přenese do kondenzátoru
-		dU := randomDU()
 		if i0 > 0 {
+			dU := randomDU()
 			fill(box.U, u0-32+dU)
 		} else if u0 > 0 {
-			fill(box.U, -0.47*u0+dU)
+			// 0.60463 je přesně exp(-pi()*R/(2*omega_L*L))
+			fill(box.U, math.Round(-60.463*u0*(1+0.003*rand.NormFloat64()))/100)
 		} else {
 			fill(box.U, u0)
 		}
@@ -229,12 +230,12 @@ func (z *Zapojeni) measureA(box *Box, ma []float64, u0, i0 float64) (msg string)
 
 	if (Bila | Modra) == (z.linkedToCerna | z.linkedToCervena | z.linkedOnBox) {
 		// část energie cívky se přenese do kondenzátoru
-		dU := randomDU()
 		if i0 > 0 {
+			dU := randomDU()
 			fill(box.U, u0-32-dU)
 		} else if u0 > 0 {
 			// 0.60463 je přesně exp(-pi()*R/(2*omega_L*L))
-			fill(box.U, math.Round(-60.463*u0)/100-dU)
+			fill(box.U, math.Round(-60.463*u0*(1+0.003*rand.NormFloat64()))/100)
 		} else {
 			fill(box.U, u0)
 		}
