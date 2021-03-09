@@ -124,3 +124,73 @@ Array.prototype.forEach.call(merak, function(el, i) {
         measure();
     })
 });
+
+var resetBtn = document.getElementById('reset');
+var startBtn = document.getElementById('start');
+var lapsArea = document.getElementById('laps');
+
+var stopwatch = new SegmentDisplay("stopwatch");
+stopwatch.pattern         = "##:##.#";
+stopwatch.displayAngle    = 0;
+stopwatch.digitHeight     = 20;
+stopwatch.digitWidth      = 12;
+stopwatch.digitDistance   = 2.5;
+stopwatch.segmentWidth    = 2.0;
+stopwatch.segmentDistance = 0.5;
+stopwatch.segmentCount    = 7;
+stopwatch.cornerType      = 0;
+stopwatch.colorOn         = "#090909";
+stopwatch.colorOff        = "#d8d8d8";
+stopwatch.draw();
+stopwatch.setValue(' 0:00.0');
+
+var watchInt = 0;
+var reset = true;
+var startTime = new Date();
+
+var getWatchValue = function() {
+    var time    = new Date();
+    var elapsed = time - startTime;
+    var ms = Math.floor(elapsed % 1000 / 100);
+    elapsed = Math.floor(elapsed/1000);
+    var seconds = elapsed % 60;
+    elapsed = (elapsed - seconds) / 60;
+    var minutes = elapsed % 100;
+
+    return ((minutes < 10) ? ' ' : '') + minutes
+                + ':' + ((seconds < 10) ? '0' : '') + seconds
+                + '.' + ms;
+};
+var tick = function () {
+    stopwatch.setValue(getWatchValue());
+};
+
+startBtn.addEventListener('click', function (el) {
+    if (el.target.textContent == 'Start') {
+        if (reset) {
+            startTime = new Date();
+            reset = false;
+        }
+        if (watchInt > 0) {
+            clearInterval(watchInt);
+        }
+        watchInt = setInterval(tick, 100);
+        el.target.textContent = 'Stop';
+        resetBtn.textContent = 'Lap';
+    } else {
+        el.target.textContent = 'Start';
+        resetBtn.textContent = 'Reset';
+        if (watchInt > 0) {
+            clearInterval(watchInt);
+        }
+    }
+});
+
+resetBtn.addEventListener('click', function (el) {
+    if (el.target.textContent == 'Reset') {
+        reset = true;
+        stopwatch.setValue(' 0:00.0');
+    } else {
+        lapsArea.value += getWatchValue() + '\n';
+    }
+});

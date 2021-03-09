@@ -11,21 +11,55 @@
 </head>
 
 <body class="container">
-	<h1>Experimentální úloha 62. ústředního kola FO</h1>
+	<h1 class="mt-4">Experimentální úloha 62. ústředního kola FO</h1>
 
-    <canvas id="display" width="260" height="140"></canvas>  
 
-    <form id="aparatura"i class="mt-4">
+    <form id="aparatura"i class="mt-5">
         <input id="i0" type="hidden" name="i0" value="0">
         <input id="u0" type="hidden" name="u0" value="0">
 
-        <div class="btn-toolbar row mb-3">
-            <label class="col-auto col-form-label">Nastavení digitálního měřáku</label>
-            <div class="col-auto btn-group btn-group-lg" role="group">
-                <input type="radio" class="btn-check" name="merak" id="V" value="V" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="V">V</label>
-                <input type="radio" class="btn-check" name="merak" id="mA" value="A" autocomplete="off" checked>
-                <label class="btn btn-outline-secondary" for="mA">mA</label>
+        <div class="row mb-5 gx-5 gy-3">
+            <div class="col col-lg-auto">
+                <div class="digimerak d-flex flex-column align-items-center">
+                <div class="mt-3 align-self-stretch d-flex justify-content-between">
+                     <label class="cerna ms-3">–</label>
+                     <label class="cervena me-3">+</label>
+                </div>
+                <canvas id="display" width="250" height="65"></canvas>  
+                <div class="btn-toolbar mb-3">
+                    <div class="col-auto btn-group btn-group-lg" role="group">
+                        <input type="radio" class="btn-check" name="merak" id="V" value="V" autocomplete="off">
+                        <label class="btn btn-outline-dark" for="V">V</label>
+                        <input type="radio" class="btn-check" name="merak" id="mA" value="A" autocomplete="off" checked>
+                        <label class="btn btn-outline-dark" for="mA">mA</label>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col col-auto flex-fill">
+                <div class="blackbox d-flex flex-column align-items-center">
+                <div class="align-self-stretch d-flex justify-content-between">
+                     <label class="modra me-3"></label>
+                     <label class="bila"></label>
+                </div>
+                <div class="mt-5 align-self-center">
+                     <label class="zelena"></label>
+                </div>
+                <div class="mt-5 align-self-end">
+                    <div class="copy">
+                        ®BlackPho
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col col-lg-auto">
+                <div class="stopwatch d-flex flex-column align-items-center">
+                    <canvas id="stopwatch" width="170" height="40"></canvas>  
+                    <div class="d-flex justify-content-between mt-3">
+                        <button type="button" class="btn btn-secondary me-2" id="reset">Reset</button>
+                        <button type="button" class="btn btn-success ms-2" id="start">Start</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -150,16 +184,19 @@
         </div>
     </form>
     <p>
-        Každá změna zapojení se automaticky ihned projeví.
+    <i>Každá změna zapojení se automaticky ihned projeví.</i>
     </p>
 
-    <div class="alert alert-danger mt-4" role="alert" style="display: none">
-    </div>
     <div class="alert alert-warning mt-2" role="alert" style="display: none">
         Při odpojování kontaktu přeskočila jiskra!
     </div>
+    <div class="alert alert-danger mt-2" role="alert" style="display: none">
+    </div>
     <div id="result" class="mt-4">
     </div>
+
+    <h3 class="mt-4">Poznámkový blok</h3>
+    <textarea class="form-control mb-4" id="laps" rows="20"></textarea>
 
     <script type="text/javascript" src="static/main.js"></script>
 </body>

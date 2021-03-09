@@ -1,36 +1,37 @@
-label.btn.cerna, label.btn.cervena, label.btn.bila, label.btn.zelena, label.btn.modra {
+label.cerna, label.cervena, label.bila, label.zelena, label.modra {
     width: 3rem;
     height: 3rem;
     border-radius: 1.5rem;
     border-width: 10px;
+    border-style: solid;
 }
 
-label.btn.cerna, label.btn.cervena {
+label.cerna, label.cervena {
     background-color: gold;
 }
 
-label.btn.bila, label.btn.zelena, label.btn.modra {
+label.bila, label.zelena, label.modra {
     background-color: #222;
 }
 
-label.btn.cerna {
+label.cerna {
     border-color: #000;
 }
 
-label.btn.cervena {
+label.cervena {
     border-color: #d00;
 }
 
-label.btn.bila {
+label.bila {
     border-color: #dcdcc6;
 }
 
-label.btn.zelena {
-    border-color: #3d3;
+label.zelena {
+    border-color: #2c5;
 }
 
-label.btn.modra {
-    border-color: #06d;
+label.modra {
+    border-color: #0060d9;
 }
 
 .banan-left, .banan-right {
@@ -51,4 +52,79 @@ label.btn.modra {
 .drat {
     height: 4px;
     border: 2px solid #333;
+}
+
+.digimerak {
+    border-radius: 1rem;
+    background-color: gold;
+    border: 3px solid rgba(0, 0, 0, 0.4);
+    width: calc(250px + 3rem);
+}
+
+.digimerak canvas {
+    border-radius: 0.5rem;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+.digimerak label.cerna, .digimerak label.cervena {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    border-width: 7px;
+    background-color: rgba(0, 0, 0, 0.2);
+    line-height: 1rem;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.digimerak .cerna {
+    text-indent: 2rem;
+}
+.digimerak .cervena {
+    text-indent: -2rem;
+}
+
+.blackbox {
+    border-radius: 1rem;
+    background-color: #333;
+    border: 5px solid black;
+    width: 100%;
+    padding: 3rem 3rem 0 3rem;
+}
+.blackbox .copy {
+    color: #dcdcc6;
+    font-size: 0.7rem;
+    margin-right: -2.5rem;
+}
+.blackbox label.bila, .blackbox label.modra, .blackbox label.zelena {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    border-width: 7px;
+}
+
+.stopwatch {
+    border-radius: 120px;
+    border: 10px solid lightskyblue;
+    width: 240px;
+    height: 240px;
+    background-color: coral;
+}
+.stopwatch canvas {
+    margin-top: 80px;
+    padding: 0.5rem;
+    border: 2px solid lightskyblue;
+    border-radius: 1rem;
+    background-color: white;
+}
+.stopwatch button {
+    padding: 0.25rem;
+    border-radius: 1.5rem;
+    min-width: 3rem;
+    min-height: 3rem;
+    border-width: 2px;
+    border-color: rgba(0, 0, 0, 0.4);
+    font-size: 0.8rem;
 }
