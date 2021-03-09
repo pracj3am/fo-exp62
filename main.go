@@ -339,7 +339,7 @@ func (z *Zapojeni) measureV(box *Box, v []float64, u0, i0 float64) (msg string) 
 				copy(box.U, v)
 			}
 
-			if !z.inv {
+			if z.inv {
 				inv(v)
 			}
 		}
