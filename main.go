@@ -143,12 +143,13 @@ func exp1(vals []float64, u0 float64, crop float64) {
 	a := Ue - u0
 	b := -1 / (Rm * C)
 	for i := range vals {
-		vals[i] = a * math.Exp(b*t)
-		if vals[i] < crop {
+		v := a * math.Exp(b*t)
+		if v < crop {
 			j = i
 			break
 		}
-		vals[i] = math.Round(vals[i]*100) / 100
+		v = v * (1 + 0.003*rand.NormFloat64()) // chyba 1%
+		vals[i] = math.Round(v*100) / 100
 		t += dt
 	}
 	if j > 0 {
@@ -163,8 +164,9 @@ func exp2(vals []float64, u0 float64) {
 	c := L / (Rm * Rm * C)
 	d := -Rm / L
 	for i := range vals {
-		vals[i] = a * (math.Exp(b*t) - c*math.Exp(d*t))
-		vals[i] = math.Round(vals[i]*100) / 100
+		v := a * (math.Exp(b*t) - c*math.Exp(d*t))
+		v = v * (1 + 0.003*rand.NormFloat64()) // chyba 1%
+		vals[i] = math.Round(v*100) / 100
 		t += dt
 	}
 }
