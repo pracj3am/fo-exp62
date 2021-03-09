@@ -1,6 +1,5 @@
 var alertEl = document.querySelectorAll('.alert-danger')[0]
 var jiskraEl = document.querySelectorAll('.alert-warning')[0]
-var resultEl = document.getElementById('result')
 var u0 = document.getElementById('u0')
 var i0 = document.getElementById('i0')
 var zapojInpts = document.querySelectorAll('#aparatura .spoj input[type=radio]');
@@ -35,7 +34,6 @@ var measure = function() {
         body: new FormData(form),
     }).then(response => response.json())
     .then(data => {
-        s = '';
         if (data.Measured) {
             var i = 0;
             intervalId = setInterval(function () {
@@ -58,16 +56,12 @@ var measure = function() {
                 i++;
             }, 400);
 
-            s += '<p>Naměřeno:</p><pre>'+data.Measured.join(',')+'</pre>';
-            s += '<p>Napětí na kondenzátoru:</p><pre>'+data.Box.U.join(',')+'</pre>';
-            s += '<p>Proud na cívce:</p><pre>'+data.Box.I.join(',')+'</pre>';
             if (data.Box.Jiskra) {
                 jiskraEl.style.display = '';
             } else {
                 jiskraEl.style.display = 'none';
             }
         }
-        resultEl.innerHTML = s;
 
         if (data.Msg != '') {
             alertEl.innerHTML = data.Msg;
