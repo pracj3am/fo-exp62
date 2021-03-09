@@ -231,7 +231,8 @@ func (z *Zapojeni) measureA(box *Box, ma []float64, u0, i0 float64) (msg string)
 		if i0 > 0 {
 			fill(box.U, u0-32-dU)
 		} else if u0 > 0 {
-			fill(box.U, -0.47*u0-dU)
+			// 0.60463 je přesně exp(-pi()*R/(2*omega_L*L))
+			fill(box.U, math.Round(-60.463*u0)/100-dU)
 		} else {
 			fill(box.U, u0)
 		}
