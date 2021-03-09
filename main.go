@@ -170,9 +170,9 @@ func exp2(vals []float64, u0 float64) {
 }
 
 func randomDU() float64 {
-	dU := rand.NormFloat64() + 1
+	dU := 0.5*rand.NormFloat64() + 1
 	if dU < 0 {
-		dU = 0
+		dU = 0.003 * rand.NormFloat64()
 	}
 	return math.Round(dU*100) / 100
 }
