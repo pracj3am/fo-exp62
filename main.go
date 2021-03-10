@@ -9,6 +9,8 @@ import (
 	"math/rand"
 	"net/http"
 	"strconv"
+
+	"github.com/gorilla/handlers"
 )
 
 var templates *template.Template
@@ -398,11 +400,12 @@ func GetIndex(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	log.Println("Server started")
-	http.HandleFunc("/", GetIndex)
-	http.HandleFunc("/measure", Measure)
-	http.Handle("/static/", http.StripPrefix("/static/",
+	log.Println("Starting server...")
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", GetIndex)
+	mux.HandleFunc("/measure", Measure)
+	mux.Handle("/static/", http.StripPrefix("/static/",
 		http.FileServer(http.Dir("./static"))))
 	templates = template.Must(template.ParseGlob("templates/*"))
-	log.Println(http.ListenAndServe(":8080", nil))
+	log.Println(http.ListenAndServe(":8080", handlers.CompressHandler(mux)))
 }
