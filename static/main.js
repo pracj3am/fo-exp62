@@ -17,7 +17,7 @@ display.segmentDistance = 0.5;
 display.segmentCount    = 7;
 display.cornerType      = 0;
 display.colorOn         = "#090909";
-display.colorOff        = "#d8d8d8";
+display.colorOff        = "#dfdfdf";
 display.draw();
 display.setValue('');
 
@@ -134,7 +134,7 @@ stopwatch.segmentDistance = 0.5;
 stopwatch.segmentCount    = 7;
 stopwatch.cornerType      = 0;
 stopwatch.colorOn         = "#090909";
-stopwatch.colorOff        = "#d8d8d8";
+stopwatch.colorOff        = "#dfdfdf";
 stopwatch.draw();
 stopwatch.setValue(' 0:00.0');
 
